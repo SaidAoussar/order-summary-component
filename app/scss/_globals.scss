@@ -1,0 +1,64 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+h1,
+h2 {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  padding: 0px;
+  margin: 0;
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: $paleBlue;
+  margin: 0px;
+  &::before {
+    position: absolute;
+    content: url(./../../images/pattern-background-mobile.svg);
+    top: 0;
+  }
+
+  @include breakpoint-up(sm) {
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-image: url(./../../images/pattern-background-desktop.svg);
+      background-position: top;
+      background-repeat: repeat-x;
+    }
+  }
+}
+
+.container {
+  max-width: 328px;
+  margin: 0 auto;
+
+  @include breakpoint-up(sm) {
+    max-width: 406px;
+  }
+}
+
+.p-all {
+  padding: 36px 26px;
+
+  @include breakpoint-up(sm) {
+    padding: 42px 42px;
+  }
+}
